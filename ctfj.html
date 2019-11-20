@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>抽屉风景</title>
+</head>
+ <style>
+.ctboxs{
+	width: 470px;
+	height: 830px;
+	position: relative;
+	overflow: hidden;
+	border:3px solid blue;
+}
+.ctboxs .ctbox{
+	width: 470px;
+	height: 650px;
+	position: absolute;
+	top:0;
+	transition: 2s linear;
+}
+.ctboxs .ctbox .title{
+	font-size: 22px;
+	color:white;
+	text-align:center;
+	height:65px;
+	line-height: 62px;
+}
+.ctboxs .ct1 .title{
+	background:#00007F;
+}
+.ctboxs .ct2 .title{
+	background:#EE8800;
+}
+.ctboxs .ct3 .title{
+	background:#7F7F00;
+}
+.ctboxs .ct4 .title{
+	background:#2361AD;
+}
+.ctboxs .ct1{top:0;}
+.ctboxs .ct2{top:650px;}
+.ctboxs .ct3{top:710px;}
+.ctboxs .ct4{top:770px;}
+</style>
+<body>
+	<div id="ct1" class="ctboxs">
+		 <div class="ctbox ct1">
+		 	<div class="title">风景1</div>
+		 	<div class="content">
+		 		<img src="images/1.jpg" alt="1"></div>
+		 </div>
+		 <div class="ctbox ct2">
+		 	<div class="title">风景2</div>
+		 	<div class="content">
+		 		<img src="images/2.jpg" alt="2"></div>
+		 </div>
+		 <div class="ctbox ct3">
+		 	<div class="title">风景3</div>
+		 	<div class="content">
+		 		<img src="images/3.jpg" alt="3"></div>
+		 </div>
+		 <div class="ctbox ct4">
+		 	<div class="title">风景4</div>
+		 	<div class="content">
+		 		<img src="images/4.jpg" alt="4"></div>
+		 </div>
+		</div>
+
+		<script>
+			var ctboxs=document.getElementById('ct1');
+			var ctbox=ctboxs.getElementsByClassName('ctbox');
+			var title=ctboxs.getElementsByClassName('title');
+			var contentwidth=590;
+			var titleWidth=60;
+			var n=0;
+			for(var i=0;i<title.length;i++){
+				title[i].index=i;
+				title[i].onclick=function(){
+					n=this.index;
+					for(var i=0;i<ctbox.length;i++){
+						if(i<=n){
+						ctbox[i].style.top=i*titleWidth+'px';
+					}else{
+						ctbox[i].style.top=i*titleWidth+contentwidth+'px';
+					}
+			  }
+			}
+		}
+		</script>
+</body>
+</html>
